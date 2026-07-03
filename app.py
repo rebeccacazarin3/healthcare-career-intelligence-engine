@@ -75,3 +75,9 @@ st.dataframe(
     filtered_df,
     use_container_width=True
 )
+
+from utils.data_loader import load_careers
+
+df = load_careers()
+
+

@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+from utils.data_loader import load_careers
 
 # -------------------------------------------------
 # Page Configuration
@@ -9,25 +9,44 @@ st.set_page_config(
     page_icon="🏥",
     layout="wide"
 )
+# ---------------------------------------------
+# Sidebar
+# ---------------------------------------------
+
+with st.sidebar:
+    st.title("🏥 HCIE")
+
+    st.markdown("### Navigation")
+
+    st.page_link("app.py", label="🏠 Home")
+
+    st.markdown("---")
+
+    st.markdown("### Coming Soon")
+
+    st.write("🔍 Career Explorer")
+
+    st.write("🤖 AI Career Coach")
+
+    st.write("📊 Analytics Dashboard")
+
+    st.write("📚 Learning Resources")
 
 # -------------------------------------------------
 # Load Data
 # -------------------------------------------------
-df = pd.read_csv("healthcare_careers.csv")
+df = load_careers()
 
 # -------------------------------------------------
 # Header
 # -------------------------------------------------
 st.title("🏥 Healthcare Career Intelligence Engine")
 
-st.markdown("""
-### AI-Powered Career Discovery & Analytics
+st.caption(
+    "Helping students and professionals explore healthcare careers through AI, analytics, and data."
+)
 
-Explore healthcare careers, compare required skills, discover certifications,
-and receive AI-powered career recommendations.
-
----
-""")
+st.markdown("---")
 
 # -------------------------------------------------
 # Quick Statistics

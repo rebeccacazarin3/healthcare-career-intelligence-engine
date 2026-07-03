@@ -44,12 +44,27 @@ I chose CSV files for version 1 because they were simple to manage during develo
 So far things are going well but I suspect there will be many a coffee pot consummed before this project is finished to my liking. 
 Things I need to work on - Remembering to add items to the PATH or to switch over to the correct version for what I am using. 
 
-## Sprint 2 - Building the Career Explorer
+## Sprint 2 - Project Orgainzation
 
 ### Date
 July 2, 2026
 
 ### Objective
-Build an intuitive way for users to discover healthcare careers.
+Improve the project's structure and prepare it for future growth.
 
 ### Completed
+- Organized project folders
+- Added a data loading utility
+- Implemented Streamlit caching
+- Added a navigation sidebar
+- Improved the homepage layout
+
+### Challenges
+Learning how to separate application logic into reusable modules and getting the wording correct. 
+
+### What I Learned
+Keeping data loading separate from the user interface makes the project easier to maintain as it grows. Make sure to keep everything organized so that there is little confusion later on. 
+
+### Next Sprint
+Replace the data table with interactive career cards.
+

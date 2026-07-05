@@ -68,3 +68,25 @@ Keeping data loading separate from the user interface makes the project easier t
 ### Next Sprint
 Replace the data table with interactive career cards.
 
+# Development Log
+
+## Sprint 2.1 – Building the Foundation
+
+### Objective
+Improve the project structure and prepare the application for future features.
+
+### Completed
+- Organized the project folders
+- Created a reusable data loader
+- Implemented Streamlit caching
+- Added a navigation sidebar
+- Improved the homepage
+
+### Challenges
+...
+
+### What I Learned
+...
+
+### Next Sprint
+Replace the data table with interactive career cards.

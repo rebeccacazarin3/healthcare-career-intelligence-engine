@@ -5,3 +5,4 @@ import streamlit as st
 def load_careers():
     """Load healthcare career data."""
     return pd.read_csv("data/healthcare_careers.csv")
+    

@@ -5,10 +5,31 @@ from utils.data_loader import load_careers
 # Page Configuration
 # -------------------------------------------------
 st.set_page_config(
-    page_title="Healthcare Career Intelligence Engine",
-    page_icon="🏥",
-    layout="wide"
-)
+with st.sidebar:
+    st.image("https://img.icons8.com/color/96/hospital-3.png", width=60)
+
+    st.title("HCIE")
+
+    st.markdown("### Navigation")
+
+    st.success("🏠 Home")
+
+    st.markdown("---")
+
+    st.markdown("### Upcoming")
+
+    st.write("🔍 Career Explorer")
+
+    st.write("🤖 AI Career Coach")
+
+    st.write("📊 Analytics Dashboard")
+
+    st.write("📚 Learning Resources")
+
+    st.markdown("---")
+
+    st.caption("Version 0.1")
+    
 # ---------------------------------------------
 # Sidebar
 # ---------------------------------------------
@@ -46,8 +67,16 @@ st.caption(
     "Helping students and professionals explore healthcare careers through AI, analytics, and data."
 )
 
-st.markdown("---")
+st.markdown(
+    """
+Discover healthcare careers, compare salaries and required skills,
+and receive AI-powered career recommendations.
 
+*Built with Python, Streamlit, and Google Gemini.*
+"""
+)
+
+st.divider()
 # -------------------------------------------------
 # Quick Statistics
 # -------------------------------------------------

@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
+import plotly.express as px 
 from utils.data_loader import load_careers
+from components.analytics import salary_by_category
 
 # -------------------------------------------------
 # Page Configuration
@@ -205,3 +207,19 @@ st.dataframe(
     ],
     use_container_width=True
 )
+
+st.divider()
+
+st.subheader("📊 Analytics Dashboard")
+
+st.caption(
+    "Visualize salary trends across healthcare career categories."
+)
+
+salary_chart = salary_by_category(filtered_df)
+
+st.plotly_chart(
+    salary_chart,
+    use_container_width=True
+)
+

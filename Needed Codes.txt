@@ -1,0 +1,52 @@
+# Debugging log code 
+
+st.write("Data Types:")
+st.write(df.dtypes)
+
+st.write("Salary column values:")
+st.write(df["Median_Salary_USD"].head(10))
+
+st.write("Python type of first value:")
+st.write(type(df["Median_Salary_USD"].iloc[0]))
+
+# Code that tell the different types of info present in the dataframe
+st.write(df.dtypes)
+
+#---------------------------------
+# Career section  
+#---------------------------------
+st.dataframe(
+    filtered_df[
+        [
+            "Career",
+            "Category",
+            "Median_Salary_USD",
+            "Education",
+            "AI_Relevance"
+        ]
+    ],
+    use_container_width=True
+)
+
+
+#---------------------------------
+# App Start COde
+#---------------------------------
+
+py -m streamlit run app.py
+
+#---------------------------------
+# Virtual Enviroment Start
+#---------------------------------
+
+.\.venv\Scripts\Activate.ps1
+
+#---------------------------------
+# Virtual Enviroment intall Prefix
+#---------------------------------
+
+py -m pip install 
+
+#---------------------------------
+# 
+#---------------------------------

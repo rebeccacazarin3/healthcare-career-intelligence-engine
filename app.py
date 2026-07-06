@@ -50,6 +50,12 @@ df["Median_Salary_USD"] = pd.to_numeric(
 with st.sidebar:
     st.title("🏥 HCIE")
 
+    st.caption(
+        "Explore healthcare careers using analytics and artificial intelligence."
+    )
+
+    st.markdown("---")
+
     st.markdown("### Navigation")
 
     st.page_link("app.py", label="🏠 Home")
@@ -77,14 +83,9 @@ with st.sidebar:
 
     st.markdown("### Coming Soon")
 
-    st.write("🔍 Career Explorer")
-
     st.write("🤖 AI Career Coach")
-
     st.write("📊 Analytics Dashboard")
-
     st.write("📚 Learning Resources")
-
 
 # -------------------------------------------------
 # Header
@@ -97,17 +98,28 @@ st.caption(
 
 st.markdown(
     """
-Discover healthcare careers, compare salaries and required skills,
-and receive AI-powered career recommendations.
+### Explore Healthcare Careers Through Data & AI
 
-*Built with Python, Streamlit, and Google Gemini.*
+Whether you're exploring career paths, comparing salaries,
+or discovering AI-driven opportunities in healthcare,
+this dashboard provides data-driven insights to support
+your next career decision.
+
+*Built with Python, Pandas, Streamlit, and Google Gemini.*
 """
 )
 
 st.divider()
 # -------------------------------------------------
-# Quick Statistics
+# Quick Insites
 # -------------------------------------------------
+
+st.divider()
+
+st.subheader("📊 Quick Insights")
+st.caption(
+    "An overview of the healthcare careers currently available in the database."
+)
 
 total_careers = len(df)
 
@@ -141,10 +153,17 @@ col4.metric(
 # -------------------------------------------------
 # Search
 # -------------------------------------------------
+st.divider()
+
+st.subheader("🔍 Career Search")
+
+st.caption(
+    "Search by career title or use the filters in the sidebar to narrow your results."
+)
 
 search = st.text_input(
-    "🔍 Search for a healthcare career",
-    placeholder="Example: Healthcare Data Analyst"
+    "Career Title",
+    placeholder="Example: Clinical Data Analyst"
 )
 
 filtered_df = df
@@ -159,11 +178,12 @@ if search:
 # Display Table and Results
 # -------------------------------------------------
 
-st.subheader(
-    f"Career Explorer ({len(filtered_df)} Results)"
-)
-st.subheader(
-    f"Career Explorer ({len(filtered_df)} Results)"
+st.divider()
+
+st.subheader("📋 Career Explorer")
+
+st.caption(
+    f"{len(filtered_df)} healthcare careers match."
 )
 
 display_df = filtered_df.copy()

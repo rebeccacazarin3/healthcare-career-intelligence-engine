@@ -44,6 +44,9 @@ I chose CSV files for version 1 because they were simple to manage during develo
 So far things are going well but I suspect there will be many a coffee pot consummed before this project is finished to my liking. 
 Things I need to work on - Remembering to add items to the PATH or to switch over to the correct version for what I am using. 
 
+## Sprint 1 - Complete
+
+
 ## Sprint 2 - Project Orgainzation
 
 ### Date
@@ -82,11 +85,50 @@ Improve the project structure and prepare the application for future features.
 - Added a navigation sidebar
 - Improved the homepage
 
-### Challenges
-...
-
-### What I Learned
-...
-
 ### Next Sprint
 Replace the data table with interactive career cards.
+
+## July 5, 2026
+
+### Sprint 2 – Dashboard Improvements
+
+### Accomplished
+- Added four dashboard metric cards
+- Implemented sidebar filtering
+- Added category, education, and AI relevance filters
+- Connected filters to the career explorer
+- Improved career table layout
+- Continued cleaning and organizing app structure
+
+### Challenges
+- Resolved salary data type issues caused by CSV formatting
+- Learned how to progressively filter a Pandas DataFrame
+
+### Lessons Learned
+Building one feature at a time made debugging much easier. I also learned the importance of cleaning data before performing calculations. Make sure that the structure is clear and concise.
+
+## Sprint 2 Complete
+
+### Accomplishments
+- Added dashboard summary cards
+- Implemented sidebar filtering
+- Added career search
+- Formatted salary values for readability
+- Reorganized application structure
+- Cleaned and validated dataset
+- Improved overall user interface
+
+### Challenges
+- Resolved CSV formatting issues
+- Corrected column naming inconsistencies
+- Converted salary values from strings to numeric types
+- Learned how Streamlit processes data and reruns the application
+
+### Lessons Learned
+Today reinforced the importance of data cleaning before analysis. I also gained a much better understanding of how Streamlit applications are structured and how to build interactive dashboards using Pandas filtering.
+
+### Next Sprint
+- Interactive analytics charts
+- Career detail pages
+- AI Career Coach integration
+

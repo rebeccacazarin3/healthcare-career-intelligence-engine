@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 from utils.data_loader import load_careers
 
@@ -5,31 +6,43 @@ from utils.data_loader import load_careers
 # Page Configuration
 # -------------------------------------------------
 st.set_page_config(
-with st.sidebar:
-    st.image("https://img.icons8.com/color/96/hospital-3.png", width=60)
+    page_title="Healthcare Career Intelligence Engine",
+    page_icon="🏥",
+    layout="wide"
+)
 
-    st.title("HCIE")
+# -------------------------------------------------
+# Load Data
+# -------------------------------------------------
 
-    st.markdown("### Navigation")
+df = load_careers()
 
-    st.success("🏠 Home")
 
-    st.markdown("---")
+# Clean column names
+df.columns = (
+    df.columns
+        .str.strip()
+        .str.replace(" ", "_")
+)
 
-    st.markdown("### Upcoming")
+# Convert salary column to numeric
+df["Median_Salary_USD"] = (
+    df["Median_Salary_USD"]
+        .astype(str)
+        .str.replace("$", "", regex=False)
+        .str.replace(",", "", regex=False)
+        .str.strip()
+)
 
-    st.write("🔍 Career Explorer")
+df["Median_Salary_USD"] = pd.to_numeric(
+    df["Median_Salary_USD"],
+    errors="coerce"
+)
 
-    st.write("🤖 AI Career Coach")
+# Debuging 
 
-    st.write("📊 Analytics Dashboard")
 
-    st.write("📚 Learning Resources")
 
-    st.markdown("---")
-
-    st.caption("Version 0.1")
-    
 # ---------------------------------------------
 # Sidebar
 # ---------------------------------------------
@@ -43,6 +56,25 @@ with st.sidebar:
 
     st.markdown("---")
 
+    st.markdown("### Filters")
+
+    category = st.selectbox(
+        "Category",
+        ["All"] + sorted(df["Category"].unique().tolist())
+    )
+
+    education = st.selectbox(
+        "Education",
+        ["All"] + sorted(df["Education"].unique().tolist())
+    )
+
+    ai = st.selectbox(
+        "AI Relevance",
+        ["All"] + sorted(df["AI_Relevance"].unique().tolist())
+    )
+
+    st.markdown("---")
+
     st.markdown("### Coming Soon")
 
     st.write("🔍 Career Explorer")
@@ -53,10 +85,6 @@ with st.sidebar:
 
     st.write("📚 Learning Resources")
 
-# -------------------------------------------------
-# Load Data
-# -------------------------------------------------
-df = load_careers()
 
 # -------------------------------------------------
 # Header
@@ -83,19 +111,32 @@ st.divider()
 
 total_careers = len(df)
 
-average_salary = df["Median Salary"].mean()
+average_salary = df["Median_Salary_USD"].mean()
 
 categories = df["Category"].nunique()
 
-col1, col2, col3 = st.columns(3)
+ai_careers = len(
+    df[df["AI_Relevance"] == "High"]
+)
 
-col1.metric("Healthcare Careers", total_careers)
+col1, col2, col3, col4 = st.columns(4)
 
-col2.metric("Average Salary", f"${average_salary:,.0f}")
+col1.metric("💼 Careers", total_careers)
 
-col3.metric("Career Categories", categories)
+col2.metric(
+    "💰 Avg Salary",
+    f"${average_salary:,.0f}"
+)
 
-st.divider()
+col3.metric(
+    "🏥 Categories",
+    categories
+)
+
+col4.metric(
+    "🤖 AI Careers",
+    ai_careers
+)
 
 # -------------------------------------------------
 # Search
@@ -113,19 +154,34 @@ if search:
         df["Career"].str.contains(search, case=False)
     ]
 
+
 # -------------------------------------------------
-# Display Careers
+# Display Table and Results
 # -------------------------------------------------
 
-st.subheader("Career Explorer")
-
-st.dataframe(
-    filtered_df,
-    use_container_width=True
+st.subheader(
+    f"Career Explorer ({len(filtered_df)} Results)"
+)
+st.subheader(
+    f"Career Explorer ({len(filtered_df)} Results)"
 )
 
-from utils.data_loader import load_careers
+display_df = filtered_df.copy()
 
-df = load_careers()
+display_df["Median_Salary_USD"] = display_df[
+    "Median_Salary_USD"
+].map("${:,.0f}".format)
 
-
+st.dataframe(
+    display_df[
+        [
+            "Career",
+            "Category",
+            "Median_Salary_USD",
+            "Education",
+            "Job_Outlook",
+            "AI_Relevance"
+        ]
+    ],
+    use_container_width=True
+)

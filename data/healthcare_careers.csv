@@ -1,0 +1,21 @@
+Career_ID,Career,Category,Median_Salary_USD,Education,Job_Outlook,Remote_Friendly,Python,SQL,AI_Relevance
+1,Healthcare Data Analyst,Analytics,"85000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+2,Clinical Data Analyst,Analytics,"83000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+3,Population Health Analyst,Analytics,"82000",Bachelor's,Faster Than Average,Yes,Yes,Yes,High
+4,Revenue Cycle Analyst,Operations,"75000",Bachelor's,Average,Yes,No,Yes,Medium
+5,Healthcare BI Analyst,Analytics,"90000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+6,Clinical Informatics Analyst,Clinical Informatics,"95000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+7,Epic Analyst,Health IT,"100000",Bachelor's,Much Faster Than Average,Yes,No,Yes,Medium
+8,Health Information Manager,Clinical Informatics,"85000",Bachelor's,Faster Than Average,Yes,No,Yes,Medium
+9,Healthcare Data Scientist,AI & Data Science,"125000",Master's,Much Faster Than Average,Yes,Yes,Yes,High
+10,AI Healthcare Engineer,AI & Data Science,"135000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+11,Machine Learning Engineer (Healthcare),AI & Data Science,"140000",Bachelor's,Much Faster Than Average,Yes,Yes,Yes,High
+12,Clinical Research Coordinator,Research,"65000",Bachelor's,Faster Than Average,No,No,No,Low
+13,Clinical Research Associate,Research,"90000",Bachelor's,Faster Than Average,Yes,No,No,Medium
+14,Biostatistician,Research,"105000",Master's,Much Faster Than Average,Yes,Yes,Yes,High
+15,Healthcare Operations Analyst,Operations,"85000",Bachelor's,Faster Than Average,Yes,No,Yes,Medium
+16,Quality Improvement Specialist,Operations,"80000",Bachelor's,Faster Than Average,Yes,No,Yes,Medium
+17,Healthcare Consultant,Management,"95000",Bachelor's,Faster Than Average,Yes,No,Yes,Medium
+18,Healthcare Project Manager,Management,"98000",Bachelor's,Faster Than Average,Yes,No,Yes,Medium
+19,Public Health Analyst,Public Health,"78000",Bachelor's,Faster Than Average,Yes,Yes,Yes,High
+20,Epidemiologist,Public Health,"85000",Master's,Much Faster Than Average,Yes,Yes,Yes,High

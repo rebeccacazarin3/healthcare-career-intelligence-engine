@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px 
+
 from utils.data_loader import load_careers
 from components.analytics import salary_by_category
 

@@ -173,5 +173,36 @@ Today's focus shifted from functionality to user experience. I learned how layou
 - Improvement of UI and UX
 - Interactive Analytics Dashboard
 
-### Sprint 4 - Grphics Design 
+---
 
+## Sprint 4 – Analytics Dashboard Foundation
+
+### Sprint Goal
+Begin transforming the Healthcare Career Intelligence Engine from a searchable database into an interactive analytics dashboard.
+
+### Completed
+- Installed Plotly for interactive data visualization.
+- Created a new `components` folder to improve project organization.
+- Added `analytics.py` to separate visualization logic from the main application.
+- Built the first reusable visualization component:
+  - Average Salary by Career Category
+- Integrated the Plotly chart into the Streamlit application.
+- Verified that sidebar filters continue to work with the dashboard.
+- Organized `app.py` into clearly labeled sections for improved readability and maintainability.
+
+### Challenges
+- Investigated why custom chart colors were not appearing.
+- Learned that Plotly's continuous color scale overrides `color_discrete_sequence` when the `color` parameter is mapped to a numeric column.
+- Decided to postpone UI theming until the application's core functionality is complete.
+
+### Lessons Learned
+This sprint introduced reusable visualization components and reinforced the importance of separating business logic from presentation logic. I learned how to aggregate data using Pandas, create interactive charts with Plotly Express, and organize visualizations into modular functions that can be reused throughout the application.
+
+### Reflection
+This sprint marked an important milestone in the project. The Healthcare Career Intelligence Engine evolved from displaying data in a table to presenting meaningful analytical insights through interactive visualizations. Seeing the first analytics dashboard working reinforced the value of building software incrementally while maintaining clean project organization.
+
+### Next Sprint
+- Build three additional analytics visualizations.
+- Arrange the dashboard into a responsive two-column layout.
+- Expand KPI cards with additional insights.
+- Add an automated "Key Insights" section summarizing important findings from the data.

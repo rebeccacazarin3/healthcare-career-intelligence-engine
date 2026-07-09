@@ -35,10 +35,16 @@ def salary_by_category(df):
 
     return fig
 
-
-# Education Distribution by Category
+# -------------------------------------------------
+# Education Distribution
+# -------------------------------------------------
 
 def education_distribution(df):
+    """
+    Creates a donut chart showing the education
+    requirements across healthcare careers.
+    """
+
     education_df = (
         df["Education"]
         .value_counts()
@@ -51,14 +57,22 @@ def education_distribution(df):
         education_df,
         names="Education",
         values="Count",
-        title="Education Requirements"
+        title="Education Requirements",
+        hole=0.46
     )
 
     return fig
 
-# AI Relevance Distribution by Category
+
+# -------------------------------------------------
+# AI Relevance Distribution
+# -------------------------------------------------
 
 def ai_relevance_chart(df):
+    """
+    Creates a bar chart showing the number of careers
+    by AI relevance.
+    """
 
     ai_df = (
         df["AI_Relevance"]
@@ -73,7 +87,14 @@ def ai_relevance_chart(df):
         x="AI_Relevance",
         y="Count",
         title="AI Relevance of Careers",
-        text_auto=True
+        text_auto=True,
+        color="AI_Relevance"
+    )
+
+    fig.update_layout(
+        xaxis_title="AI Relevance",
+        yaxis_title="Number of Careers",
+        showlegend=False
     )
 
     return fig

@@ -206,3 +206,122 @@ This sprint marked an important milestone in the project. The Healthcare Career 
 - Arrange the dashboard into a responsive two-column layout.
 - Expand KPI cards with additional insights.
 - Add an automated "Key Insights" section summarizing important findings from the data.
+
+
+## Sprint 5 – Career Intelligence Dashboard
+
+### Goal
+Transform the HCIE into an interactive analytics dashboard.
+
+### Completed
+- Added four Plotly visualizations
+- Connected charts to sidebar filters
+- Expanded KPI metrics
+- Created dashboard grid layout
+- Added key insights section
+
+### Lessons Learned
+This sprint focused on communicating information visually rather than simply displaying raw data. I learned how different chart types support different analytical questions and how dashboard organization influences the user experience.
+
+### Next Sprint
+Integrate Google's Gemini API to create an AI Career Coach that provides personalized recommendations based on user interests. Maybe improve upon the graphs. 
+
+## Sprint 6 - Interactive Career Dashboard
+
+### Date
+July 9, 2026
+
+## Objective
+
+Enhance the Healthcare Career Intelligence Engine by improving the user experience and transforming the application from a static dashboard into an interactive career exploration platform.
+
+## Features Completed
+
+### Career Profile
+
+Implemented a new Career Profile section allowing users to:
+
+- Select an individual healthcare career
+- View detailed information for the selected career
+- Display salary, education requirements, AI relevance, job outlook, Python requirements, and SQL requirements
+- Dynamically update the profile based on sidebar filters
+
+This provides users with an intuitive way to explore individual healthcare careers beyond the main data table.
+
+### Improved User Experience
+
+Enhanced application usability by:
+
+- Adding a dedicated Career Profile section
+- Organizing information into metric cards
+- Improving visual hierarchy through section headers and captions
+- Ensuring Career Profile selections respect all active sidebar filters
+
+### Dashboard Improvements
+
+Continued improving the Analytics Dashboard by:
+
+- Displaying multiple interactive Plotly visualizations
+- Showing Salary by Career Category
+- Showing Education Distribution using a donut chart
+- Organizing charts into a responsive two-column layout
+
+## Challenges Encountered
+
+### Metric Layout
+
+Initially considered displaying career information inside a table.
+
+After evaluating usability, switched to Streamlit metric cards because they allow users to scan important career information much faster.
+
+### Information Architecture
+
+Discussed which career attributes should receive the highest visual priority.
+
+Current Version 1.0 focuses on:
+
+- Salary
+- Education
+- AI Relevance
+- Job Outlook
+- Python
+- SQL
+
+Future versions will likely prioritize Certification Requirements and additional career planning information as the dataset expands. I might take away Python and SQL and exchange it for more relevant information. 
+
+## Lessons Learned
+
+This sprint reinforced several Streamlit concepts:
+
+- Using `st.columns()` to create responsive layouts
+- Filtering a DataFrame using user selections
+- Displaying individual records using metric cards
+- Building reusable UI sections
+- Thinking about user experience before implementation
+
+## Next Sprint Goals
+
+- Build a Career Comparison feature
+- Expand the dataset with certification information
+- Continue improving dashboard visualizations
+- Begin designing the AI Career Coach experience
+
+## Current Project Status
+
+Completed:
+
+- Home Dashboard
+- Sidebar Navigation
+- Search
+- Sidebar Filters
+- Career Explorer
+- Analytics Dashboard
+- Interactive Career Profile
+
+Need to Improve Later:
+
+- Sidebar Apperance
+- Career Profile Components
+- 
+
+# Sprint 7 - 

@@ -48,5 +48,10 @@ py -m streamlit run app.py
 py -m pip install 
 
 #---------------------------------
-# 
+# Git Commit Codes
 #---------------------------------
+
+git status
+git add .
+git commit -m "Complete Sprint 7 career comparison feature"
+git push origin main

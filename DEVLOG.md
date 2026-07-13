@@ -324,4 +324,37 @@ Need to Improve Later:
 - Career Profile Components
 - 
 
-# Sprint 7 - 
+# Sprint 7 - Career Comparison Feature
+
+## Objective
+Build an interactive comparison tool that allows users to evaluate two healthcare careers side by side.
+
+## Completed
+
+### Career Comparison
+- Added two independent career selection dropdowns.
+- Displayed two careers side by side.
+- Added salary comparison with calculated salary difference.
+- Added comparison insights for:
+  - Education
+  - Job Outlook
+  - AI Relevance
+  - Python
+  - SQL
+
+### Improvements
+- Fixed selectbox indexing errors.
+- Fixed DataFrame indexing using .iloc[0].
+- Verified comparison logic works across filtered datasets.
+
+## Lessons Learned
+- Different data types require different comparison methods.
+- Numeric values can be compared mathematically.
+- Categorical values are best compared using equality or ordered rankings.
+- Good UX explains the meaning of data rather than simply displaying it.
+
+## Next Sprint
+- Expand the Analytics Dashboard.
+- Improve visualizations.
+- Continue transforming HCIE into a professional analytics platform.
+S

@@ -42,6 +42,25 @@ df["Median_Salary_USD"] = pd.to_numeric(
     errors="coerce"
 )
 
+# -------------------------------------------------
+# Constants
+# -------------------------------------------------
+
+education_rank = {
+    "Certificate": 1,
+    "Associate's": 2,
+    "Bachelor's": 3,
+    "Master's": 4,
+    "Doctorate": 5,
+    "PhD": 5
+}
+
+ai_rank = {
+    "Low": 1,
+    "Medium": 2,
+    "High": 3
+}
+
 # ---------------------------------------------
 # Sidebar
 # ---------------------------------------------
@@ -212,11 +231,37 @@ st.divider()
 
 st.header("📊 Analytics Dashboard")
 
-st.markdown(
-    """
-Explore healthcare career trends through interactive visualizations. Use the sidebar filters to update every chart in real time.
-"""
-)
+st.markdown("""Explore healthcare career trends through interactive visualizations. Use the sidebar filters to update every chart in real time.""")
+
+# -------------------------------------------------
+# KPI Calculations
+# -------------------------------------------------
+
+total_careers = len(filtered_df)
+
+average_salary = filtered_df["Median_Salary_USD"].mean()
+
+most_common_education = filtered_df["Education"].mode().iloc[0]
+
+high_ai_careers = len( filtered_df[filtered_df["AI_Relevance"] == "High"])
+
+# -------------------------------------------------
+# KPI Display
+# -------------------------------------------------
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric("Total Careers", total_careers)
+
+with col2:
+    st.metric("Average Salary", f"${average_salary:,.0f}")
+
+with col3:
+    st.metric("Most Common Education", most_common_education)
+
+with col4:
+    st.metric("High AI Careers", high_ai_careers)
 
 # Salary and Education Distribution Charts
 
@@ -239,6 +284,7 @@ with right:
         use_container_width=True
     )
 
+# AI Readiness and Certification Req. Disribution Charts 
 left2, right2 = st.columns(2)
 
 with left2:
@@ -262,6 +308,62 @@ def education_distribution(df):
         .value_counts()
         .reset_index()
     )
+
+st.divider()
+
+#-------------------------------------------------
+# Career Highlights
+#-------------------------------------------------
+st.header("Career Highlights")
+
+st.caption(
+    "Automatically generated insights based on the current filters."
+)
+
+# Highest Paying Career
+highest_paid = filtered_df.loc[
+    filtered_df["Median_Salary_USD"].idxmax()
+]
+
+st.success(
+    f"**{highest_paid['Career']}** is the highest paying career "
+    f"with a median salary of "
+    f"${highest_paid['Median_Salary_USD']:,.0f}."
+)
+
+# Lowest Paying Career
+lowest_paid = filtered_df.loc[
+    filtered_df["Median_Salary_USD"].idxmin()
+]
+
+st.info(
+    f"**{lowest_paid['Career']}** is the lowest paying career "
+    f"with a median salary of "
+    f"${lowest_paid['Median_Salary_USD']:,.0f}."
+)
+
+# Highest Education Required
+highest_education = filtered_df.loc[
+    filtered_df["Education"].map(education_rank).idxmax()
+]
+
+st.success(
+    f"**{highest_education['Career']}** requires the highest level of education "
+    f"with a requirement of "
+    f"**{highest_education['Education']}**."
+)
+
+
+# High AI Careers
+high_ai_careers = len(
+    filtered_df[
+        filtered_df["AI_Relevance"] == "High"
+    ]
+)
+
+st.success(
+    f"**{high_ai_careers}** careers are classified as having **High AI Relevance**."
+)
 
 # -------------------------------------------------
 # Career Profile
@@ -393,29 +495,23 @@ else:
     )
 
 # Education Comparison
-
-education_rank = {
-    "Certificate": 1,
-    "Associate's": 2,
-    "Bachelor's": 3,
-    "Master's": 4,
-    "Doctorate": 5,
-    "PhD": 5
-}
-
 edu1 = education_rank[career1["Education"]]
 edu2 = education_rank[career2["Education"]]
 
-if education_rank[edu1] > education_rank[edu2]:
+if edu1 > edu2:
+   st.success(
+        f"🎓 **{career1['Career']}** requires a "
+        f"**{career1['Education']}**, while "
+        f"**{career2['Career']}** requires a "
+        f"**{career2['Education']}**."
+    )
+   
+elif edu2 > edu1:
     st.success(
-        f"**{career1['Career']}** requires a higher level of education than "
-        f"**{career2['Career']}**."
-    )           
-
-elif education_rank[edu2] > education_rank[edu1]:
-    st.success(
-        f"**{career2['Career']}** requires a higher level of education than "
-        f"**{career1['Career']}**."
+        f"🎓 **{career2['Career']}** requires a "
+        f"**{career2['Education']}**, while "
+        f"**{career1['Career']}** requires a "
+        f"**{career1['Education']}**."
     )
 
 else:
@@ -451,15 +547,8 @@ else:
     )
 
 # AI Relevance Comparison
-
-ai_scale = {
-    "Low": 1,
-    "Medium": 2,
-    "High": 3
-}
-
-ai1 = ai_scale[career1["AI_Relevance"]]
-ai2 = ai_scale[career2["AI_Relevance"]]
+ai1 = ai_rank[career1["AI_Relevance"]]
+ai2 = ai_rank[career2["AI_Relevance"]]
 
 if ai1 > ai2: 
     st.success(

@@ -358,4 +358,59 @@ Build an interactive comparison tool that allows users to evaluate two healthcar
 - Improve visualizations.
 - Continue transforming HCIE into a professional analytics platform.
 
-# Sprint 8 - 
+# Sprint 8 - Analytics Dashboard & Career Insights
+## Objective
+Transform HCIE from simply displaying career data into an application that generates analytics from the dataset.
+
+## Completed Features
+- Analytics Dashboard 
+- Salary Analytics 
+- Education Distribution
+- Career Highlights
+- Data-Driven Calculations
+- User Experience Improvements
+
+## Skills Learned 
+- Pandas aggregation
+- Data visualization with Plotly
+- Dynamic filtering
+- Ranking categorical variables
+- Data-driven UI design
+- Streamlit metrics
+- Reusable constants
+- Clean code organization
+
+## Next Sprint
+Creaete AI prompt for Gemini, then refine and implament. 
+
+# Sprint 9 - AI integration and prompt engineering
+
+## Completed
+- Gemini integration
+- Prompt engineering
+- Dynamic prompt construction
+- Analytics-informed AI responses
+- Refactoring into prompts.py
+- Cleaner project architecture
+
+## Lessons Learned 
+- Large Language Model (LLM) Integration
+- Prompt Engineering
+- Combining AI with Analytics
+- Software Architecture
+- Refactoring
+- Debugging Python Packages
+- And that you actually have to install the ai interface for it to work and not just assume that the code to intall it works the first time. 
+
+## Technologies Practiced 
+- Streamlit
+- Google Gemini API
+- Prompt Engineering
+- Python Modules
+- API Security
+- Software Architecture
+- Refactoring
+- Debugging
+- Dynamic Prompt Generation
+
+# Sprint 10 

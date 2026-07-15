@@ -50,8 +50,14 @@ py -m pip install
 #---------------------------------
 # Git Commit Codes
 #---------------------------------
-"Complete Sprint 7 career comparison feature"
+
 git status
 git add .
-git commit -m 
+git commit -m "Sprint 9 - AI integration and prompt engineering" 
 git push origin main
+
+# For moving the prompt and improving the architecture - 
+git commit -m "refactor: move Gemini prompt generation to prompts module"
+
+# For the prompt improvements themselves
+git commit -m "feat: enhance AI Career Coach prompt with dataset insights"

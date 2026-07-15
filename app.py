@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px 
 
+from utils.gemini_helper import generate_career_advice 
 from utils.data_loader import load_careers
 from components.analytics import salary_by_category
 from components.analytics import education_distribution
@@ -61,6 +62,7 @@ ai_rank = {
     "High": 3
 }
 
+
 # ---------------------------------------------
 # Sidebar
 # ---------------------------------------------
@@ -102,7 +104,6 @@ with st.sidebar:
     st.markdown("### Coming Soon")
 
     st.write("🤖 AI Career Coach")
-    st.write("📊 Analytics Dashboard")
     st.write("📚 Learning Resources")
 
 # -------------------------------------------------
@@ -426,6 +427,126 @@ col6.metric(
 )
 
 # -------------------------------------------------
+# AI Career Coach
+# -------------------------------------------------
+
+st.divider()
+
+st.header("AI Career Coach")
+
+st.caption(
+    "Receive AI-powered insights and career guidance based on the selected healthcare career."
+)
+
+generate_advice = st.button(
+    "Generate AI Career Advice",
+    use_container_width=True
+)
+
+if generate_advice:
+
+    average_salary = filtered_df["Median_Salary_USD"].mean()
+
+    salary_difference = (
+        career["Median_Salary_USD"] - average_salary
+    )
+    if salary_difference > 0:
+        salary_comparison = (
+            f"${salary_difference:,.0f} above the dataset average"
+        )
+    elif salary_difference < 0:
+        salary_comparison = (
+            f"${abs(salary_difference):,.0f} below the dataset average"
+        )
+    else:
+        salary_comparison = (
+            "equal to the dataset average"
+        )
+
+    education_level = education_rank[
+        career["Education"]
+    ]
+
+    max_education = max(
+        education_rank.values()
+    )
+
+    ai_level = ai_rank[
+        career["AI_Relevance"]
+    ]
+
+    max_ai = max(ai_rank.values())
+
+    prompt = f"""
+    You are an experienced Healthcare Career Advisor specializing in healthcare analytics, health informatics, artificial intelligence, and emerging healthcare technologies. 
+    Your role is to help students and early-career professionals understand healthcare careers and identify practical next steps for professional growth.
+    Using ONLY the career information provided below, generate clear, encouraging, and actionable career guidance.
+
+    Career: {career["Career"]}
+    Category: {career["Category"]}
+    Median Salary: ${career["Median_Salary_USD"]:,.0f}
+    Education Required: {career["Education"]}
+    Job Outlook: {career["Job_Outlook"]}
+    AI Relevance: {career["AI_Relevance"]}
+    Python Required: {career["Python"]}
+    SQL Required: {career["SQL"]}
+
+    Dataset Insights
+    -----------------
+    Average Salary Across Dataset:
+    ${average_salary:,.0f}
+
+    Selected Career Salary Difference:
+    ${salary_difference:,.0f}
+
+    Education Rank:
+    {education_level} of {max_education}
+
+    AI Readiness Rank:
+    {ai_level} of {max_ai}
+
+    Write your response using the following sections:
+
+    ## Career Summary
+    Explain what this career typically involves in 2 or 3 sentences.
+
+    ## Salary & Outlook
+    Interpret the salary and job outlook. Explain what these values suggest.
+
+    ## AI Readiness
+    Explain how artificial intelligence is likely to impact this career and why the AI relevance rating matters.
+
+    ## Skills to Develop
+    Recommend technical and professional skills that would help someone succeed in this career.
+
+    ## Career Growth Opportunities
+    Suggest logical next career steps or adjacent careers.
+
+    ## 90 Day Action Plan
+    Provide three actionable recommendations.
+    Each recommendation should begin with a bold action title followed by a one- to two-sentence explanation.
+    Focus on realistic steps someone could complete within the next three months.
+
+    Response Requirements 
+    -------------
+    Use both the Career Information and the Dataset Insights.
+    When appropriate, explain how this career compares with other healthcare careers represented in the dataset.
+    Do not simply repeat the data. Interpret what the comparisons mean for someone considering this career.
+    Keep the tone professional, supportive, and concise.
+    Do not invent statistics or salary figures.
+    Base recommendations on the supplied career information and general professional knowledge.
+
+    """
+
+    with st.spinner("Generating personalized career advice..."):
+        st.write(prompt) 
+        advice = generate_career_advice(prompt)
+
+    st.markdown(advice)
+
+
+
+# -------------------------------------------------
 # Career Comparison
 # -------------------------------------------------
 st.divider()
@@ -569,7 +690,6 @@ else:
 
 # Python Comparison 
 
-career1["Python"] == career2["Python"]
 if career1["Python"] == career2["Python"]:
     st.info(
         "Both careers have the same Python requirements."
@@ -589,7 +709,6 @@ else:
 
 # SQL Comparison 
 
-career1["SQL"] == career2["SQL"]
 if career1["SQL"] == career2["SQL"]:
     st.info(
         "Both careers have the same SQL requirements."

@@ -1,0 +1,224 @@
+# under Navigation  have these pages
+- 🏠 Dashboard
+- 🔍 Career Explorer
+- 📊 Analytics
+- 🤖 AI Career Coach
+- ⚖ Career Comparison
+- ℹ About HCIE
+
+## Have the dashboard as the landing pages
+-----------------------------------------------------
+
+Healthcare Career Intelligence Engine
+
+Explore healthcare careers using interactive analytics
+and AI-powered career coaching.
+
+-----------------------------------------------------
+
+Quick Statistics
+
+[Total Careers]
+[Average Salary]
+[Most Common Education]
+[High AI Careers]
+
+-----------------------------------------------------
+
+Career Highlights
+
+Highest Paying Career
+Lowest Paying Career
+Highest AI Career
+Fastest Growing Career
+
+-----------------------------------------------------
+
+Featured Insights
+
+Salary by Category      Education Distribution
+
+-----------------------------------------------------
+
+Get Started
+
+[Explore Careers]
+
+-----------------------------------------------------
+
+
+## Next page Career Explorer - Everything related to finding careers stays here
+------------------------------------------------------------------------------
+
+Sidebar
+
+Filters
+
+Search
+
+-----------------------------------------
+
+Career Table
+
+-----------------------------------------
+
+Selected Career
+
+Career Information
+
+Category
+
+Salary
+
+Education
+
+Job Outlook
+
+Python
+
+SQL
+
+AI Relevance
+
+## Next Page Analytics - visualizations to answer data 
+-----------------------------------------------------------------
+Analytics Dashboard
+
+Salary Insights
+
+[Salary by Category]
+
+Key Findings
+
+----------------------------
+
+Education Insights
+
+[Education Distribution]
+
+Key Findings
+
+----------------------------
+
+AI Insights
+
+(New chart later)
+
+Key Findings
+
+## Then the AI Career Coach 
+----------------------------------------------------------------------------
+AI Career Coach
+
+---------------------------------
+
+Select Career
+
+▼
+
+---------------------------------
+
+Generate Advice
+
+---------------------------------
+
+AI Career Report
+
+Career Summary
+
+Salary & Outlook
+
+AI Readiness
+
+Skills
+
+Growth
+
+90-Day Plan
+
+## THen Career Comparison - Comparison of two careers
+--------------------------------------------------------------
+Career Comparison
+
+Career 1
+
+▼
+
+Career 2
+
+▼
+
+--------------------------------
+
+Comparison Table
+
+Salary
+
+Education
+
+AI
+
+Outlook
+
+Python
+
+SQL
+
+--------------------------------
+
+Key Takeaways
+
+## Lastly an About Page - general information on the app
+-------------------------------------------------------------------
+About HCIE
+
+Purpose
+
+Features
+
+Technologies
+
+Python
+
+Streamlit
+
+Pandas
+
+Plotly
+
+Gemini
+
+Future Enhancements
+
+
+
+
+
+
+#### SideBar - Note: Filters should only appear on Explorer and Analytics.
+Healthcare Career Intelligence Engine
+
+-----------------
+
+Navigation
+
+Dashboard
+
+Explorer
+
+Analytics
+
+AI Coach
+
+Comparison
+
+About
+
+-----------------
+
+Filters
+
+(only on pages that use them)
+
+
+
